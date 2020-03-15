@@ -1,0 +1,50 @@
+# config/packages/security.yaml
+security:
+  # ...
+
+  encoders:
+    # use your user class name here
+    App\Entity\User:
+      # Use native password encoder
+      # This value auto-selects the best possible hashing algorithm
+      # (i.e. Sodium when available).
+      algorithm: auto
+
+  providers:
+    entity_provider:
+      entity:
+        class: App\Entity\User
+        property: email
+
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+
+    login:
+      pattern:  ^/login
+      stateless: true
+      anonymous: true
+      json_login:
+        check_path: /login_check
+        success_handler: lexik_jwt_authentication.handler.authentication_success
+        failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+    api_doc:
+      pattern:  ^/api/doc
+      stateless: true
+      anonymous: true
+
+    api:
+      pattern:  ^/api
+      stateless: true
+      anonymous: false
+      provider: entity_provider
+      guard:
+        authenticators:
+        - lexik_jwt_authentication.jwt_token_authenticator
+
+  access_control:
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/api/doc, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }

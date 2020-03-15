@@ -1,5 +1,6 @@
 
 ###> symfony/framework-bundle ###
+/.env.test
 /.env.local
 /.env.local.php
 /.env.*.local
@@ -8,3 +9,19 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+/bin/phpunit
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+###> miscellaneous ###
+/.idea
+/.nbproject
+###< miscellaneous ###
