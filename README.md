@@ -27,6 +27,8 @@ Put in your **/etc/hosts** file this line:
 
 `127.0.0.1	test.trident.local`
 
+Create Db (if not exists): `php bin/console doctrine:database:drop --force && php bin/console doctrine:database:create`
+Launch Migrations: `php bin/console doctrine:migrations:migrate`
 Launch Fixture to load demo data: `php bin/console doctrine:fixtures:load`
 
 Go to **sandbox**: http://test.trident.local[:your_web_server_port]/api/doc for all API endpoints.
