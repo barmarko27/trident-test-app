@@ -37,4 +37,4 @@ Go to **sandbox**: http://test.trident.local[:your_web_server_port]/api/doc for 
 
 This demo App use **JWT Authentication**, show fixture file to get master user data (email & password), goto **/login_check** and provide data to get token
 
-
+WebTest case can be runned via: `php bin/phpunit --testdox`
