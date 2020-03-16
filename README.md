@@ -27,7 +27,10 @@ Put in your **/etc/hosts** file this line:
 
 `127.0.0.1	test.trident.local`
 
+Launch Fixture to load demo data: `php bin/console doctrine:fixtures:load`
+
 Go to **sandbox**: http://test.trident.local[:your_web_server_port]/api/doc for all API endpoints.
 
+This demo App use **JWT Authentication**, show fixture file to get master user data (email & password), goto **/login_check** and provide data to get token
 
 
